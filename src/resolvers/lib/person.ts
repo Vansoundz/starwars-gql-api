@@ -1,15 +1,44 @@
-import getPerson from "$lib/person"
-import handleError from "$lib/error";
-import { authenticatePerson } from "$lib/auth";
 
-const person = async (parent: any, args: any, context: any, info: any) => {
-    authenticatePerson(context)
+import handleError from "$lib/error";
+
+const people = async (_: null, args: any, { dataSources: { swapi } }: any) => {
     try {
-        let person = await getPerson({ email: args.Email })
+        let people = await swapi.getPeople(args)
+        return people.results
+    } catch (error) {
+        handleError(error)
+    }
+}
+
+const person = async (parent: any, args: any, { dataSources: { swapi } }: any) => {
+    try {
+
+        let person = await swapi.getPerson(args.id)
         return person
     } catch (error) {
         handleError(error)
     }
 }
 
-export { person }
+const search = async (parent: any, args: any, { dataSources: { swapi } }: any) => {
+    try {
+        let people = await swapi.searchPeople(args)
+        return people.results
+    } catch (error) {
+        handleError(error)
+    }
+}
+
+
+const count = async (parent: any, args: any, { dataSources: { swapi } }: any) => {
+    try {
+        let people = await swapi.searchPeople(args)
+        return people.count
+    } catch (error) {
+        handleError(error)
+    }
+}
+
+
+
+export { person, people, search, count }

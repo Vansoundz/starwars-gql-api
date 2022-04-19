@@ -1,11 +1,7 @@
 type Person {
-  Email: String!
-  Password: String
-  IsActive: Boolean
-  HasProfile: Boolean
-  PersonToken: String
-  CreatedAt: String
-  UserID: Int
-  Verified: Boolean
-  JWT: String
+  name: String
+  height: String
+  mass: String
+  gender: String
+  homeworld: String
 }

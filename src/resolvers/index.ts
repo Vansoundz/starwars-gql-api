@@ -1,30 +1,13 @@
-import { login, register } from "$res/auth";
-import { multipleUpload, singleUpload } from "$res/file";
-import { product, products, productSave } from "$res/product";
-import { person } from "$res/person";
-import { GraphQLUpload } from "graphql-upload";
+import { person, people, search, count } from "$res/person";
 
 const resolvers = {
-    Upload: GraphQLUpload,
     Query: {
-        // Profile
+        // People
+        people,
         person,
-        products,
-        product,
+        search,
+        count
     },
-
-    Mutation: {
-        // Auth
-        register,
-        login,
-
-        // Profile
-        productSave,
-
-        // File
-        singleUpload,
-        multipleUpload,
-    }
 };
 
 export default resolvers
