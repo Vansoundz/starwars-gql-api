@@ -16,14 +16,12 @@
     "graphql-import-files": "^1.0.18",
     "graphql-upload": "^12.0.0",
     "tsconfig-paths": "^3.11.0",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "ts-node": "^10.7.0"
   },
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register -e ts,json,gql,env,dev src/index.ts",
     "build": "tsc",
     "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js"
-  },
-  "devDependencies": {
-    "ts-node": "^10.7.0"
   }
 }
