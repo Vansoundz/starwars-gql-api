@@ -19,6 +19,11 @@ class Swapi extends RESTDataSource {
         // console.log(`${qs.stringify(params)}`)
         return this.get(`/people/?${qs.stringify(params)}`)
     }
+
+    async getPlanet(id: string) {
+        // console.log(`${qs.stringify(params)}`)
+        return this.get(`/planets/${id}`)
+    }
 }
 
 export default new Swapi()

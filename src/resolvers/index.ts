@@ -1,4 +1,5 @@
 import { person, people, search, count } from "$res/person";
+import { planet } from "$res/planet";
 
 const resolvers = {
     Query: {
@@ -8,6 +9,10 @@ const resolvers = {
         search,
         count
     },
+
+    Person: {
+        homeworld: planet
+    }
 };
 
 export default resolvers

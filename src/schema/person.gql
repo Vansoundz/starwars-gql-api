@@ -3,5 +3,5 @@ type Person {
   height: String
   mass: String
   gender: String
-  homeworld: String
+  homeworld: Planet
 }
